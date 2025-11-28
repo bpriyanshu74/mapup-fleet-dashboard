@@ -2,13 +2,10 @@ import { useTripData } from "../../context/TripDataContext";
 import { useNavigate } from "react-router-dom";
 
 export default function Trips() {
-  const { allTrips = [], loading } = useTripData(); // default to empty array
+  const { allTrips, loading } = useTripData();
   const navigate = useNavigate();
 
   if (loading) return <p>Loading trips...</p>;
-
-  // Safety check
-  if (!allTrips.length) return <p>No trips available</p>;
 
   return (
     <div>
